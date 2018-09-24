@@ -6,7 +6,9 @@ import {Component} from '@angular/core'
     <div>
         <h1>Upcoming Angular Events</h1>
         <hr>
-        <event-thumbnail [event]="event1" (eventClick)="hadleEventClicked($event)"></event-thumbnail>
+        <event-thumbnail #thumbnail [event]="event1"></event-thumbnail>
+        <h2>{{thumbnail.propperty}}</h2>
+        <button class="btn btn-primary" (click)="thumbnail.handleClickMe()">Click Me!</button>
     </div>
     `
 })
@@ -26,8 +28,5 @@ export class EventListComponent{
         }
     }
 
-    hadleEventClicked(data)
-    {
-        console.log("Received: " + data)
-    }
+
 }
