@@ -16,6 +16,7 @@ import { format } from 'util';
 })
 
 export class CreateEventComponent{
+    isDirty:boolean = true  
     constructor(private router: Router)
     {
 
