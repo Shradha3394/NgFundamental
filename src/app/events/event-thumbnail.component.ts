@@ -1,8 +1,8 @@
-import {Component, Input, Output, EventEmitter} from '@angular/core'
+import { Component, Input, Output, EventEmitter } from '@angular/core'
 
 @Component({
-    selector: 'event-thumbnail',
-    template: `
+  selector: 'event-thumbnail',
+  template: `
     <div [routerLink]="['/events', event.id]" class="well hoverwell thumbnail">
         <h2>{{event?.name}}</h2>
         <div>Date:{{event?.date}}</div>
@@ -20,14 +20,13 @@ import {Component, Input, Output, EventEmitter} from '@angular/core'
         <div *ngIf="event?.onlineURL">Online URL:{{event?.onlineURL}}</div>
     </div>
     `,
-    styles: [`
+  styles: [`
         .thumbnail {min-height:210px;}
         .pad-left {margin-left:10px;}
         .well div {color:#bbb;}
     `]
 })
 
-export class EventThumbnailComponent
-{
-    @Input() event:any
+export class EventThumbnailComponent {
+  @Input() event: any
 }

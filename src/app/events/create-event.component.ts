@@ -1,8 +1,8 @@
-import {Component} from '@angular/core'
-import {Router} from '@angular/router'
+import { Component } from '@angular/core'
+import { Router } from '@angular/router'
 import { format } from 'util';
 @Component({
-    template: `
+  template: `
     <h1>New Event</h1>
     <hr>
     <div class='col-md-6'>
@@ -15,13 +15,12 @@ import { format } from 'util';
     `
 })
 
-export class CreateEventComponent{
-    isDirty:boolean = true  
-    constructor(private router: Router)
-    {
+export class CreateEventComponent {
+  isDirty: boolean = true
+  constructor(private router: Router) {
 
-    }
-    Cancel() {
-        this.router.navigate(['/events'])
-    }
+  }
+  Cancel() {
+    this.router.navigate(['/events'])
+  }
 }
