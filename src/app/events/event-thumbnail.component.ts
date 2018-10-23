@@ -18,7 +18,7 @@ import { IEvent } from './shared';
             <span>Location:{{event?.location?.address}}</span>
             <span class="pad-left">{{event?.location?.city}}, {{event?.location?.country}}</span>
         </div>
-        <div *ngIf="event?.onlineURL">Online URL:{{event?.onlineURL}}</div>
+        <div *ngIf="event?.onlineUrl">Online URL:{{event?.onlineUrl}}</div>
     </div>
     `,
   styles: [`
