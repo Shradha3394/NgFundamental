@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core'
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
 
 @Component({
-  templateUrl: './profile.component.html'
+  templateUrl: './profile.component.html',
+  styles: [`
+        em { float: right; color: red; }
+    `]
 })
 
 export class ProfileComponent implements OnInit {
@@ -15,8 +18,8 @@ export class ProfileComponent implements OnInit {
 
   }
   ngOnInit() {
-    let firstName = new FormControl(this.authService.currentUser.firstName)
-    let lastName = new FormControl(this.authService.currentUser.lastName)
+    let firstName = new FormControl(this.authService.currentUser.firstName, Validators.required)
+    let lastName = new FormControl(this.authService.currentUser.lastName, Validators.required)
 
     this.profileForm = new FormGroup({
       firstName: firstName,
@@ -25,7 +28,11 @@ export class ProfileComponent implements OnInit {
   }
 
   saveProfile(formValues){
-    this.authService.updateProfile(formValues.firstName, formValues.lastName)
+    if(this.profileForm.valid)
+    {
+      this.authService.updateProfile(formValues.firstName, formValues.lastName)
+      this.router.navigate(['/events'])
+    }
   }
 
   cancel(){
